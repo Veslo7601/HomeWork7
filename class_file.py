@@ -126,14 +126,20 @@ class AddressBook(UserDict):
 
     def iterator(self, value):
         """Iterator"""
+        contact_list = []
         for contact in self.data.values():
             names = str(contact.name)
             if names.find(value) != -1:
-                yield f"Contact {contact} have word {value}"
+                contact_list.append(f"{contact} have word {value}")
 
             for phone in contact.phones:
                 contact_phone = str(phone)
                 if contact_phone.find(value) != -1:
-                    yield f"Contact {contact} have number {value}"
+                    contact_list.append(f"{contact} have word {value}")
+
+        if len(contact_list) == 0:
+            return "No matches found"
+        else:
+            return contact_list
 
 #The file ends

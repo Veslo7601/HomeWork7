@@ -98,8 +98,7 @@ def command_good_bye():
 
 def command_find_all(value):
     """Keyword search function """
-    for i in book.iterator(value):
-        print(i)
+    return book.iterator(value)
 
 def get_command(command):
     """Function command bot"""
